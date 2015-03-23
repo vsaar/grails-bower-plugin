@@ -1,0 +1,8 @@
+{
+    "name": "chathub",
+    "private": true,
+    "dependencies": {
+        "jquery": "~1.10",
+        "backbone": "~1.1"
+    }
+}
