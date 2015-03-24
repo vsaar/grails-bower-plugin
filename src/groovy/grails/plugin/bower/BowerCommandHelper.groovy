@@ -17,7 +17,7 @@ package grails.plugin.bower
 
 /**
  * The <code>BowerCommandHelper</code> is a utility class for dealing
- * the Bower's CLI.
+ * with Bower's CLI.
  */
 class BowerCommandHelper {
 
@@ -36,7 +36,7 @@ class BowerCommandHelper {
      * @return Exit code
      */
     static install(directory) {
-        return runBowerCommand("install", "--config.directory=${directory}")
+        return runBowerCommand("install")
     }
 
     /**
