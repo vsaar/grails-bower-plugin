@@ -26,8 +26,8 @@ class BowerCommandHelper {
      * command line.
      * @return Exit code
      */
-    static init() {
-        return runBowerCommand("init")
+    static init(directory) {
+        return runBowerCommand(directory, "init")
     }
 
     /**
@@ -36,21 +36,22 @@ class BowerCommandHelper {
      * @return Exit code
      */
     static install(directory) {
-        return runBowerCommand("install")
+        return runBowerCommand(directory, "install")
     }
 
     /**
      * Run a Bower command with arguments
+     * @param directory The command's working directory
      * @param command The command
      * @param args The list of arguments
      * @return Exit code
      */
-    static runBowerCommand(command, String... args) {
+    static runBowerCommand(String directory, command, String... args) {
         def processArgs = ["bower", command]
         args.each { processArgs << it }
 
         def processBuilder = new ProcessBuilder(processArgs)
-        processBuilder.directory(new File("./grails-app/conf"))
+        processBuilder.directory(new File(directory))
         processBuilder.inheritIO()
 
         def proc = processBuilder.start()

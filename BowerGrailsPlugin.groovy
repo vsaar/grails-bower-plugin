@@ -31,12 +31,14 @@ class BowerGrailsPlugin {
         "grails-app/assets/**",
         "grails-app/conf/bower.json"
     ]
-    def watchedResources = "file:./grails-app/conf/bower.json"
+    def watchedResources = [
+        "file:./grails-app/conf/bower.json"
+    ]
 
     def onChange = { event ->
         log.info "Installing Bower dependencies"
 
-        if(BowerCommandHelper.install("../assets/external")) {
+        if(BowerCommandHelper.install(application.mergedConfig.grails.plugin.bower.configurationDirectory)) {
             log.error "Installing Bower dependencies failed"
         } else {
             log.info "Bower dependencies installed successfully"

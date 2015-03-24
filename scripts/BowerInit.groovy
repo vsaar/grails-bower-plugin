@@ -8,7 +8,7 @@ target(bowerInit: "The description of the script goes here!") {
 
     event("StatusUpdate", ["Initializing bower.json"])
 
-    if(bower.init()) {
+    if(bower.init("./grails-app/conf")) {
         event("StatusError", ["Initializing bower.json failed"])
     } else {
         event("StatusFinal", ["Successfully initialized bower.json"])
