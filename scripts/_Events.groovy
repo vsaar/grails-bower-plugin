@@ -6,7 +6,7 @@ eventPackagingEnd = {
 
     event("StatusUpdate", ["Installing Bower dependencies"])
 
-    if(bower.install(config.grails.plugin.bower.configurationDirectory)) {
+    if(bower.install(config.grails.plugin.bower.configurationDirectory ?: bower.DEFAULT_CONFIGURATION_DIRECTORY)) {
         event("StatusError", ["Installing Bower dependencies failed"])
     } else {
         event("StatusFinal", ["Bower dependencies installed successfully"])

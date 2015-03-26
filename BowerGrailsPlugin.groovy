@@ -38,7 +38,7 @@ class BowerGrailsPlugin {
     def onChange = { event ->
         log.info "Installing Bower dependencies"
 
-        if(BowerCommandHelper.install(application.mergedConfig.grails.plugin.bower.configurationDirectory)) {
+        if(BowerCommandHelper.install(application.config.grails.plugin.bower.configurationDirectory ?: BowerCommandHelper.DEFAULT_CONFIGURATION_DIRECTORY)) {
             log.error "Installing Bower dependencies failed"
         } else {
             log.info "Bower dependencies installed successfully"

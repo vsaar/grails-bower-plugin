@@ -21,13 +21,15 @@ package grails.plugin.bower
  */
 class BowerCommandHelper {
 
+    static final String DEFAULT_CONFIGURATION_DIRECTORY = "./grails-app/conf"
+
     /**
      * Initialize bower.json file with information requested on the
      * command line.
      * @return Exit code
      */
     static init(directory) {
-        return runBowerCommand(directory, "init")
+        return runBowerCommand(directory, "init", "--config.interactive")
     }
 
     /**
